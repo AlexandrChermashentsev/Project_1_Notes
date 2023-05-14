@@ -1,6 +1,5 @@
-import uuid
-
+from uuid import uuid4
 
 def Create_uuid():
-    UUID = str(uuid.uuid4())[:13]
+    UUID = str(uuid4())[:13] # В имя файла записываю первые 13 символов
     return UUID

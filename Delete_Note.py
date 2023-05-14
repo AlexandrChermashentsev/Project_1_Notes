@@ -1,9 +1,8 @@
-import os
+from os import path, remove
 
 def Remove_Note(name_file):
-    # print(os.getcwd())
-    if os.path.isfile(name_file):
-        os.remove(name_file)
+    if path.isfile(name_file):
+        remove(name_file)
         print("Заметка удалена")
     else: print("Неверно введено имя файла")
 

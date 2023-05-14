@@ -21,4 +21,4 @@ class Note():
     
     # @body.setter # сеттер
     # def body(self, headline, body):
-        # with open()
+    #     with open(self._uuid, )

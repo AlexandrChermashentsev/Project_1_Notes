@@ -1,4 +1,6 @@
-from os import chdir, listdir
+from os import listdir
+from List_Formats import Return_Length_Headline as RLH
+import View
 
 def Fool_Proof(command):
     flag = True
@@ -10,7 +12,6 @@ def Fool_Proof(command):
         else: command = input("Такого файла нет. Введите имя файла: ")
 
 def Edit_note(name_file):
-    # chdir("Notes_" + 'json') # Убрать
     flag = True
     data = open(name_file, 'r+')
     print("---------------------------------------")
@@ -20,13 +21,14 @@ def Edit_note(name_file):
     print()
     print("---------------------------------------")
     while flag:
-        command = input("Что вы хотите изменить?\n1 - заголовок заметки(не более 10 символов)\n2 - текст заметки\n0 - назад\n-> ")
+        command = input("Что вы хотите изменить?\n1 - заголовок заметки(не более " + str(RLH()) 
+                        + " символов)\n2 - текст заметки\n0 - назад\n-> ")
 
         match command:
             case '1':
                 command = input("Введите новый текст заголовка: ")
-                if len(command) > 10 or ";" in command:
-                    print('Ошибка')
+                if len(command) >= RLH() or ";" in command:
+                    print(View.Error_Command())
                 else:
                     with open(name_file, 'r') as f:
                         lines = f.readlines()
@@ -47,8 +49,4 @@ def Edit_note(name_file):
             case '0':
                 flag = False
             case _:
-                print('Неверная команда!')
-    # data.close()
-
-
-# Edit_note('3a646186-a0f8.json') # Убрать
+                View.Error_Command()
