@@ -11,7 +11,7 @@ class Note():
         headline = input('Введите заголовок заметки: ')
         flag = True
         while flag:
-            if len(headline) >= RLH() or ";" in headline:
+            if (len(headline) >= RLH() or ";" in headline) and len(headline) == 0:
                 headline = input('Введите заголовок заметки не более ' + str(RLH())
                                 + ' символов: ')
             else: 

@@ -15,7 +15,7 @@ def Start_Menu():
 0 - Выход")
 
 def Enter_Name_File():
-    print("Введите имя файла: ")
+    return "Введите имя файла (В формате: 'Id.формат'): "
 
 def Format_Create_Note():
     print("В каком формате создать заметку?\n" + Repeat_Files_Format())
@@ -30,3 +30,5 @@ def Menu_Filter_Edit_Del():
     print("1 - фильтрация заметок\n\
 2 - редактировать заметку\n3 - удалить заметку\n0 - выйти в основное меню")
 
+def Long_Separator():
+    print("-------------------------------------------------------")
