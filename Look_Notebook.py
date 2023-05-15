@@ -5,17 +5,11 @@ import View
 def Edit_note(name_file):
     if path.isfile(name_file):
         flag = True
-        count = 1
         while flag:
             data = open(name_file, 'r')
             View.Long_Separator()
             for line in data:
-                match count:
-                    case 1:
-                        print('\033[3;0;0m', line, end='')
-                        count+= 1
-                    case _:
-                        print(line, end='')
+                print(line, end='')
             data.close()
             print()
             View.Long_Separator()

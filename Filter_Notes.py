@@ -3,6 +3,7 @@ from time import strftime, strptime, ctime
 from Sorted_time import date_and_time_sort as DaTS
 import View
 import Look_Notebook
+import Delete_Note
 
 
 def My_Filter_Notebook(command, filter_key):
@@ -24,13 +25,18 @@ def My_Filter_Notebook(command, filter_key):
     View.Long_Separator()
     
     print('Введите "1" - чтобы редактировать заметку\n\
+2 - удалить заметку\n\
 или любой другой символ чтобы продолжить фильтровать или вернуться назад')
     command = input('-> ')
-    if command == '1':
-        print(View.Enter_Name_File())
-        name_file = input('-> ')
-        Look_Notebook.Edit_note(name_file)
-
+    match command:
+        case '1':
+            print(View.Enter_Name_File())
+            name_file = input('-> ')
+            Look_Notebook.Edit_note(name_file)
+        case '2':
+            print(View.Enter_Name_File())
+            name_file = input('-> ')
+            Delete_Note.Remove_Note(name_file)
 
 
 def Find_Key_Filter_v2():
